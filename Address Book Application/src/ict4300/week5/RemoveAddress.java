@@ -2,16 +2,17 @@ package ict4300.week5;
 
 public class RemoveAddress implements Command {
   
-  private final Address address;
-  private AddressBook addressBook;
+  private final int id_;
   
   public RemoveAddress(int index) {
-    //
+    id_ = index;
   }
 
   @Override
-  public Address runCommand(AddressBook addressBook) {
-    return address;
+  public String runCommand(AddressBook addressBook) {
+    if (id_ >= 0 && id_ < addressBook.getSize()) {
+      addressBook.remove(id_);
+    }
+    return String.format("Address ID %s Removed", id_);
   }
-
 }

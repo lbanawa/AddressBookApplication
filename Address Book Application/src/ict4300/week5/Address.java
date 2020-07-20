@@ -43,8 +43,10 @@ public class Address {
 
   @Override
   public String toString() {
-    return "Address [name=" + name + ", street=" + street + ", city=" + city + ", state=" + state
-        + ", zip=" + zip + "]";
+    return String.format("\n%s:\n  %s\n  %s, %s %s\n", name, street, city, state, zip);
+    
+//    return "Address [name=" + name + ", street=" + street + ", city=" + city + ", state=" + state
+//        + ", zip=" + zip + "]";
   }
   
 }

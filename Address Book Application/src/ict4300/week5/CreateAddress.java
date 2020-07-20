@@ -7,6 +7,7 @@ public class CreateAddress implements Command {
   private final Address address;
   
   public CreateAddress(List<String> args) {
+  
     if (args.size() == 5) {
       address = new Address(args.get(0), args.get(1), args.get(2), args.get(3), args.get(4));
     } else {
@@ -15,11 +16,11 @@ public class CreateAddress implements Command {
   }
 
   @Override
-  public Address runCommand(AddressBook addressBook) {
+  public String runCommand(AddressBook addressBook) {
     if (address != null) {
       addressBook.add(address);
     }
-    return address;
+    return address.toString();
   }
 
 }

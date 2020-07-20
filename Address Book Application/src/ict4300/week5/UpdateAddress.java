@@ -17,11 +17,11 @@ public class UpdateAddress implements Command {
   }
 
   @Override
-  public Address runCommand(AddressBook addressBook) {
+  public String runCommand(AddressBook addressBook) {
     if (address != null) {
       addressBook.update(index, address);
     }
-    return address;
+    return address.toString();
   }
 
 }

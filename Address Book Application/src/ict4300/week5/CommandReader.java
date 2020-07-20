@@ -7,7 +7,7 @@ import java.util.List;
 import java.util.Scanner;
 
 public class CommandReader {
-  private static final int LENGTH = 7;
+  private static final int LENGTH = 5;
   private final Scanner scanner;
   private final PrintWriter output;
   
@@ -58,8 +58,8 @@ public class CommandReader {
       args.add(arg);
     }
     
-    while (args.size() < LENGTH) {
-      args.add("");
+    if (args.size() < LENGTH) {
+      output.println("Please enter the address as name, street, city, state, zip: ");
     }
     return args;
   }

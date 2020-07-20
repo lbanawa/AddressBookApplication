@@ -8,6 +8,7 @@ class AddressBookTest {
   
   private final Address lauren = new Address("Lauren", "123 Street", "Tampa", "Florida", "33647");
   private final Address nori = new Address("Nori", "456 Cat Lane", "Orlando", "Florida", "34747");
+  private final Address updated = new Address("Updated Lauren", "123 Street", "Tampa", "Florida", "33647");
   private AddressBook addressBook;
 
   @BeforeEach
@@ -42,6 +43,28 @@ class AddressBookTest {
     addressBook.remove(0);
     assertEquals(1, addressBook.getSize());
     assertEquals(nori, addressBook.get(0));
+  }
+  
+  @Test
+  void testGet() {
+    addressBook.add(lauren);
+    addressBook.get(0);
+    assertEquals(lauren, addressBook.get(0));
+  }
+  
+  @Test
+  void testUpdate() {
+    addressBook.add(lauren);
+    addressBook.update(0, updated);
+    assertEquals(addressBook.get(0), updated);
+  }
+  
+  @Test
+  void testGetAll() {
+    addressBook.add(lauren);
+    addressBook.add(nori);
+    addressBook.getAll();
+    assertEquals(2, addressBook.getSize());
   }
 
 }
